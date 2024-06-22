@@ -23,11 +23,31 @@ const onClickStart = () => {
     <h2 class="text-center">
       2. Обменивай ⚛️ на<br> 🎁 призы от маркетплейсов,<br> 👏 эвенты с инфлюэнсерами<br> и 💵 реальные деньги!
     </h2>
-    <n-button strong round type="success" size="large" @click="onClickStart">
-      Начнем
+    <n-button strong round class="start-button" type="success" size="large" @click="onClickStart">
+      Старт <span class="icon-start">👇🏻</span>
     </n-button>
   </main>
 </template>
 
 <style scoped>
+.start-button {
+  padding: 36px;
+  font-size: 24px;
+  margin-top: 48px;
+}
+
+.icon-start {
+  position: relative;
+  animation-name: tap;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+}
+
+@keyframes tap {
+  0%   { top: 0px; }
+  50%  { top: -2px; }
+  75%  { top: 0px; }
+  100% { top: 2px; }
+}
 </style>
