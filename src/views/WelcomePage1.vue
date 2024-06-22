@@ -21,7 +21,7 @@ const onClickStart = () => {
     
     <h2 class="text-center">1. Тапай и получай <n-gradient-text>Атомы</n-gradient-text> ⚛️</h2>
     <h2 class="text-center">
-      2. Обменивай койны на 🎁 призы, 👏 эвенты и 💵 реальные деньги!
+      2. Обменивай ⚛️ на<br> 🎁 призы от маркетплейсов,<br> 👏 эвенты с инфлюэнсерами<br> и 💵 реальные деньги!
     </h2>
     <n-button strong round type="success" size="large" @click="onClickStart">
       Начнем
