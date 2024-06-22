@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+
 const userName = ref('Пользователь123')
 const counter = ref('150067')
-const win = ref(window.Telegram)
-
-navigator.geolocation.getCurrentPosition((result) => console.log('result', result), (error) => console.log('error', error))
 </script>
 
 <template>
   <main class="home-grid">
-    {{ win }}
     <div class="home-title">
       <n-h3 class="mb-2" prefix="bar">
         <n-text type="primary">
@@ -21,13 +18,16 @@ navigator.geolocation.getCurrentPosition((result) => console.log('result', resul
         <div class="home-title__income">Прибыль в час: 0⚛️ в час</div>
       </div>
     </div>
+
     <div class="home-actions">
       <div class="action">action 1</div>
       <div class="action">action 2</div>
       <div class="action">action 3</div>
       <div class="action">action 4</div>
     </div>
+
     <div class="home-promo"></div>
+
     <div class="home-counter">
       <h1 class="text-center">
         <n-gradient-text :gradient="{
@@ -40,9 +40,11 @@ navigator.geolocation.getCurrentPosition((result) => console.log('result', resul
         ⚛️
       </h1>
     </div>
+
     <div class="home-tapper">
       <div class="tapper"></div>
     </div>
+
     <div class="home-energy">
       <h1>⚡</h1><div class="energy-bar"><div /></div>
     </div>
