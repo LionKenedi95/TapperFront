@@ -26,6 +26,11 @@ const router = createRouter({
       path: '/action',
       name: Routes.ActionPage,
       component: () => import('@/views/ActionPage.vue'),
+    },
+    {
+      path: '/actions-list',
+      name: Routes.ActionsListPage,
+      component: () => import('@/views/ActionsListPage.vue'),
     }
   ]
 })

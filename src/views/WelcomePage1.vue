@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import router from '@/router';
 import { Routes } from '@/constants/Routes'
-import { CheckmarkStarburst16Filled, GiftCard16Filled, CurrencyDollarEuro16Filled, Emoji16Filled } from '@vicons/fluent' 
+import { CheckmarkStarburst16Filled } from '@vicons/fluent' 
 
 const onClickStart = () => {
   router.push({ name: Routes.Home })

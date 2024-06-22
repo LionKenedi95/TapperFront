@@ -1,6 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, defineProps } from 'vue'
+import { useCounterStore } from '@/stores/counter'
 
+const props = defineProps<{
+  isShowCounter?: boolean
+}>()
+
+const counter = useCounterStore()
 const userName = ref('Марина Никитишновная')
 </script>
 
@@ -25,7 +31,10 @@ const userName = ref('Марина Никитишновная')
         Уровень #1
       </n-tag>
       <n-tag type="warning">
-        Прибыль в час: 0 ⚛️ в час
+        0 ⚛️ в час
+      </n-tag>
+      <n-tag v-if="isShowCounter" :bordered="false" type="success">
+        {{ counter.count }} ⚛️
       </n-tag>
     </div>
   </div>

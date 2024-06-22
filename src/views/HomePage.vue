@@ -3,12 +3,13 @@ import { ref } from 'vue'
 import router from '@/router';
 import { Routes } from '@/constants/Routes'
 import UserInfoHeader from '@/components/UserInfoHeader.vue'
+import { useCounterStore } from '@/stores/counter'
+
+const counter = useCounterStore()
 
 const onClickAction = () => {
   router.push({ name: Routes.ActionPage })
 }
-
-const counter = ref(0)
 
 const tapperWrapperRef = ref<HTMLElement | null>(null)
 
@@ -42,7 +43,7 @@ const drawSign = (touch: Touch) => {
 }
 
 const onClickTapper = (e: TouchEvent) => {
-  counter.value += e.touches.length
+  counter.increment(e.touches.length)
   if (!tapperWrapperRef.value) return
 
   Array.from(e.touches).forEach((touch: Touch) => {
@@ -62,7 +63,7 @@ const onMoveTapper = (e: TouchEvent) => {
 </script>
 
 <template>
-  <main class="home-grid">
+  <main class="home-grid default-page-height">
     <UserInfoHeader />
 
     <div class="home-actions">
@@ -81,7 +82,7 @@ const onMoveTapper = (e: TouchEvent) => {
           from: '#7E3F8F',
           to: '#91eae4'
         }">
-          {{ counter }}
+          {{ counter.count }}
         </n-gradient-text>
         ⚛️
       </h1>
@@ -106,10 +107,8 @@ const onMoveTapper = (e: TouchEvent) => {
 <style scoped>
 .home-grid {
   display: grid;
-  height: calc(100% - 64px);
   grid-template-columns: auto;
   grid-template-rows: 82px 125px 75px 50px 200px 35px;
-  
 }
 
 .home-title {

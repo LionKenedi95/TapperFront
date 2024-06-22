@@ -86,3 +86,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.default-page-height {
+  height: 580px;
+}
