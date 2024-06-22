@@ -14,8 +14,12 @@ const counter = ref('150067')
         </n-text>
       </n-h3>
       <div class="home-title__info">
-        <div class="home-title__level">Уровень #1</div>
-        <div class="home-title__income">Прибыль в час: 0⚛️ в час</div>
+        <n-tag :bordered="false" type="info">
+          Уровень #1
+        </n-tag>
+        <n-tag type="warning">
+          Прибыль в час: 0⚛️ в час
+        </n-tag>
       </div>
     </div>
 
@@ -119,6 +123,7 @@ const counter = ref('150067')
   text-align: center;
   border: 1px solid #2274A5;
   color: #ffffff;
+  background-color: #12100E;
 }
 
 .tapper {
@@ -126,6 +131,7 @@ const counter = ref('150067')
   height: 150px;
   border-radius: 50%;
   background-color: #86a8e7;
+  box-shadow: 0 0 8px #86a8e7;
 }
 
 .energy-bar {
