@@ -1,7 +1,14 @@
 @import './base.css';
+@import './utils.css';
 
 #app {
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
+  height: 100vh;
+  height: var(--tg-viewport-height);
+}
+
+.n-icon-in-text {
+  top: 5px;
 }
