@@ -12,6 +12,18 @@ const counter = ref(0)
 
 const tapperWrapperRef = ref<HTMLElement | null>(null)
 
+const signVariants = ['⚛️', '💚', '🩵', '✨', '🎈', '🎁', '🎟️', '🎫', '⚛️', '⚛️']
+const getSignContent = () => {
+  const rareFactor = Math.floor(Math.random() * 10);
+
+  if (rareFactor !== 9) {
+    return signVariants[0]
+  }
+
+  const i = Math.floor(Math.random() * 10);
+  return signVariants[i]
+}
+
 const drawSign = (touch: Touch) => {
   const wrappeBox = tapperWrapperRef.value.getBoundingClientRect()
   const clientY = touch.pageY - wrappeBox.y
@@ -20,7 +32,7 @@ const drawSign = (touch: Touch) => {
   sign.className = 'sign'
   sign.style.left = touch.pageX + 'px'
   sign.style.top = clientY + 'px'
-  sign.textContent = '⚛️'
+  sign.textContent = getSignContent()
 
   tapperWrapperRef.value.appendChild(sign)
 
@@ -39,6 +51,13 @@ const onClickTapper = (e: TouchEvent) => {
 
   e.preventDefault()
   e.stopPropagation()
+  e.stopImmediatePropagation()
+}
+
+const onMoveTapper = (e: TouchEvent) => {
+  e.preventDefault()
+  e.stopPropagation()
+  e.stopImmediatePropagation()
 }
 </script>
 
@@ -72,7 +91,7 @@ const onClickTapper = (e: TouchEvent) => {
       ref="tapperWrapperRef"
       class="home-tapper"
       @touchstart="onClickTapper"
-      @touchmove.stop.prevent
+      @touchmove.stop.prevent="onMoveTapper"
       @touchend.stop.prevent
     >
       <div class="tapper"></div>
@@ -179,10 +198,11 @@ const onClickTapper = (e: TouchEvent) => {
 <style>
 .sign {
   position: absolute;
+  font-size: 18px;
   animation-name: sign;
   animation-duration: .5s;
   animation-iteration-count: 1;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-in;
 }
 
 @keyframes sign {
@@ -192,7 +212,7 @@ const onClickTapper = (e: TouchEvent) => {
   }
   100% {
     transform: translateY(-100px);
-    opacity: 0;
+    opacity: 0.1;
   }
 }
 </style>

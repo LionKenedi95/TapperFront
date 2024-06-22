@@ -17,7 +17,7 @@ const userName = ref('Марина Никитишновная')
         M
       </n-avatar>
       <n-text type="primary">
-        {{ userName }}  
+        {{ userName }}
       </n-text>
     </n-h3>
     <div class="user-info-header__info">
@@ -25,7 +25,7 @@ const userName = ref('Марина Никитишновная')
         Уровень #1
       </n-tag>
       <n-tag type="warning">
-        Прибыль в час: 0⚛️ в час
+        Прибыль в час: 0 ⚛️ в час
       </n-tag>
     </div>
   </div>
