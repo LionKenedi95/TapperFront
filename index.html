@@ -13,6 +13,14 @@
       document.addEventListener('DOMContentLoaded', function() {
           if (window.Telegram && Telegram.WebApp) {
               Telegram.WebApp.expand();
+
+              function testhandler(object){
+                if (!Telegram.WebApp.isExpanded){
+                    Telegram.WebApp.expand()
+                  }
+              }
+
+              Telegram.WebApp.onEvent('viewportChanged', testhandler)
           }
       });
     </script>
