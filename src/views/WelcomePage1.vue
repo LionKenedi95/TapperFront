@@ -19,7 +19,7 @@ const onClickStart = () => {
       </n-icon>
     </div>
     
-    <h2 class="text-center">1. Тапай и получай <n-gradient-text>Атомы</n-gradient-text> ⚛️</h2>
+    <h2 class="text-center">1. Тапай и получай <n-gradient-text>Атомы</n-gradient-text> <img src="/src/assets/atom32.png" ></h2>
     <h2 class="text-center">
       2. Обменивай ⚛️ на<br> 🎁 призы от маркетплейсов,<br> 👏 эвенты с инфлюэнсерами<br> и 💵 реальные деньги!
     </h2>

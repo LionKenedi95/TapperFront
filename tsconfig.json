@@ -17,5 +17,9 @@
   "compilerOptions": {
     // ...
     "types": ["naive-ui/volar"]
-  }
+  },
+  "lib": [
+    "es2016",
+    "dom"
+  ],
 }

@@ -1,33 +1,56 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import router from '@/router';
+import { Routes } from '@/constants/Routes'
+import UserInfoHeader from '@/components/UserInfoHeader.vue'
 
-const userName = ref('Пользователь123')
-const counter = ref('150067')
+const onClickAction = () => {
+  router.push({ name: Routes.ActionPage })
+}
+
+const counter = ref(0)
+
+const tapperWrapperRef = ref<HTMLElement | null>(null)
+
+const drawSign = (touch: Touch) => {
+  const wrappeBox = tapperWrapperRef.value.getBoundingClientRect()
+  const clientY = touch.pageY - wrappeBox.y
+
+  const sign = document.createElement('div')
+  sign.className = 'sign'
+  sign.style.left = touch.pageX + 'px'
+  sign.style.top = clientY + 'px'
+  sign.textContent = '⚛️'
+
+  tapperWrapperRef.value.appendChild(sign)
+
+  setTimeout(() => {
+    sign.remove()
+  }, 500)
+}
+
+const onClickTapper = (e: TouchEvent) => {
+  counter.value += e.touches.length
+  if (!tapperWrapperRef.value) return
+
+  Array.from(e.touches).forEach((touch: Touch) => {
+    drawSign(touch)
+  })
+
+  e.preventDefault()
+  e.stopPropagation()
+}
 </script>
 
 <template>
   <main class="home-grid">
-    <div class="home-title">
-      <n-h3 class="mb-2" prefix="bar">
-        <n-text type="primary">
-          {{ userName }}  
-        </n-text>
-      </n-h3>
-      <div class="home-title__info">
-        <n-tag :bordered="false" type="info">
-          Уровень #1
-        </n-tag>
-        <n-tag type="warning">
-          Прибыль в час: 0⚛️ в час
-        </n-tag>
-      </div>
-    </div>
+    <UserInfoHeader />
 
     <div class="home-actions">
-      <div class="action">+ 100 тысяч ⚛️</div>
-      <div class="action">Тапай с друзьями и ускоряйте прогресс</div>
-      <div class="action">Ежедневный подарок</div>
-      <div class="action">Прокачать ⚡</div>
+      <div class="action" @click="onClickAction">+ 100 тысяч ⚛️</div>
+      <div class="action" @click="onClickAction">Тапай с друзьями и ускоряйте прогресс</div>
+      <div class="action" @click="onClickAction">Ежедневный подарок</div>
+      <div class="action" @click="onClickAction">Прокачать ⚡</div>
     </div>
 
     <div class="home-promo"></div>
@@ -45,7 +68,7 @@ const counter = ref('150067')
       </h1>
     </div>
 
-    <div class="home-tapper">
+    <div ref="tapperWrapperRef" class="home-tapper" @touchstart="onClickTapper">
       <div class="tapper"></div>
     </div>
 
@@ -60,15 +83,11 @@ const counter = ref('150067')
   display: grid;
   height: calc(100% - 64px);
   grid-template-columns: auto;
-  grid-template-rows: 125px auto auto 100px 250px 35px;
+  grid-template-rows: 125px 150px 75px 50px 264px 35px;
   
 }
 
 .home-title {
-  padding: 52px 24px 0;
-  background-color: #12100E;
-  box-shadow: 0 4px 8px rgba(99, 226, 183, .8), 0 6px 20px rgba(99, 226, 183, .8);
-  border-radius: 0 0 10px 10px;
 }
 .home-actions {
   display: grid;
@@ -86,12 +105,18 @@ const counter = ref('150067')
   justify-content: center;
   padding: 0 24px;
 
+  h1 {
+    left: 24px;
+    position: relative;
+  }
+
   h1 .n-gradient-text {
     font-family: sans-serif;
     font-weight: 800;
   }
 }
 .home-tapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,13 +128,6 @@ const counter = ref('150067')
   align-items: center;
   gap: 16px;
   padding: 0 24px;
-}
-
-.home-title__info {
-  display: flex;
-  align-items: left;
-  gap: 16px;
-  font-size: 16px;
 }
 
 .action {
@@ -127,8 +145,8 @@ const counter = ref('150067')
 }
 
 .tapper {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   background-color: #86a8e7;
   box-shadow: 0 0 8px #86a8e7;
@@ -148,6 +166,27 @@ const counter = ref('150067')
     width: 100%;
     border-radius: 4px;
     background: linear-gradient(25deg, #ff7e5f, #feb47b, #F6F930, #3A7D44, #3A7D44);
+  }
+}
+</style>
+
+<style>
+.sign {
+  position: absolute;
+  animation-name: sign;
+  animation-duration: .5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+
+@keyframes sign {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
   }
 }
 </style>

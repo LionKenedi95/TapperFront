@@ -18,9 +18,14 @@ const router = createRouter({
       component: WelcomePage1,
     },
     {
-      parh: 'home',
+      parh: '/home',
       name: Routes.Home,
       component: HomePage,
+    },
+    {
+      path: '/action',
+      name: Routes.ActionPage,
+      component: () => import('@/views/ActionPage.vue'),
     }
   ]
 })
