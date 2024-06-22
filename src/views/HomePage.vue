@@ -83,7 +83,7 @@ const onClickTapper = (e: TouchEvent) => {
   display: grid;
   height: calc(100% - 64px);
   grid-template-columns: auto;
-  grid-template-rows: 125px 150px 75px 50px 264px 35px;
+  grid-template-rows: 82px 150px 75px 50px 264px 35px;
   
 }
 

@@ -33,11 +33,11 @@ const userName = ref('Марина Никитишновная')
 
 <style scoped>
 .user-info-header {
-  padding: 52px 24px 0;
+  padding: 8px 24px 0;
   background-color: #12100E;
   box-shadow: 0 2px 4px rgba(103, 175, 211, .8), 0 4px 10px rgba(103, 175, 211, .8);
   border-radius: 0 0 10px 10px;
-  height: 125px;
+  height: 82px;
 }
 
 .user-info-header__h3 {
