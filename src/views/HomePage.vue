@@ -3,6 +3,8 @@ import { ref } from 'vue'
 const userName = ref('Пользователь123')
 const counter = ref('150067')
 const win = ref(window.Telegram)
+
+navigator.geolocation.getCurrentPosition((result) => console.log('result', result), (error) => console.log('error', error))
 </script>
 
 <template>
