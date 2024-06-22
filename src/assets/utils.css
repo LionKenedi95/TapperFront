@@ -20,6 +20,9 @@
 .text-bold {
   font-weight: bold;
 }
+.text-18 {
+  font-size: 18px;
+}
 
 .mb-1 {
   margin-bottom: 4px;

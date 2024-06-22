@@ -47,10 +47,10 @@ const onClickTapper = (e: TouchEvent) => {
     <UserInfoHeader />
 
     <div class="home-actions">
-      <div class="action" @click="onClickAction">+ 100 тысяч ⚛️</div>
+      <div class="action" @click="onClickAction"><span class="text-18">⚛️</span> +100 тысяч</div>
       <div class="action" @click="onClickAction">Тапай с друзьями и ускоряйте прогресс</div>
-      <div class="action" @click="onClickAction">Ежедневный подарок</div>
-      <div class="action" @click="onClickAction">Прокачать ⚡</div>
+      <div class="action" @click="onClickAction"><span class="text-18">🎁</span> Ежедневный подарок</div>
+      <div class="action" @click="onClickAction"><span class="text-18">⚡</span> Прокачать</div>
     </div>
 
     <div class="home-promo"></div>
@@ -83,7 +83,7 @@ const onClickTapper = (e: TouchEvent) => {
   display: grid;
   height: calc(100% - 64px);
   grid-template-columns: auto;
-  grid-template-rows: 82px 150px 75px 50px 264px 35px;
+  grid-template-rows: 82px 125px 75px 50px 200px 35px;
   
 }
 
@@ -136,8 +136,8 @@ const onClickTapper = (e: TouchEvent) => {
   justify-content: center;
   padding: 8px;
   border-radius: 8px;
-  font-size: 12px;
-  height: 55px;
+  font-size: 10px;
+  height: 50px;
   text-align: center;
   border: 1px solid #2274A5;
   color: #ffffff;
@@ -145,8 +145,8 @@ const onClickTapper = (e: TouchEvent) => {
 }
 
 .tapper {
-  width: 250px;
-  height: 250px;
+  width: 175px;
+  height: 175px;
   border-radius: 50%;
   background-color: #86a8e7;
   box-shadow: 0 0 8px #86a8e7;
