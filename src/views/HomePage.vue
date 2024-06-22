@@ -68,7 +68,13 @@ const onClickTapper = (e: TouchEvent) => {
       </h1>
     </div>
 
-    <div ref="tapperWrapperRef" class="home-tapper" @touchstart="onClickTapper">
+    <div
+      ref="tapperWrapperRef"
+      class="home-tapper"
+      @touchstart="onClickTapper"
+      @touchmove.stop.prevent
+      @touchend.stop.prevent
+    >
       <div class="tapper"></div>
     </div>
 
