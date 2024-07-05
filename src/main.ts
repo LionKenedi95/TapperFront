@@ -8,6 +8,9 @@ import naive from 'naive-ui'
 
 import App from './App.vue'
 import router from './router'
+import telegramSetup from './telegram'
+
+telegramSetup()
 
 const app = createApp(App)
 

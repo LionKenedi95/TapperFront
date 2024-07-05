@@ -8,6 +8,11 @@
   height: var(--tg-viewport-height);
 }
 
+#app main {
+  height: 100vh;
+  height: var(--tg-viewport-height);
+}
+
 .n-icon-in-text {
   top: 5px;
 }

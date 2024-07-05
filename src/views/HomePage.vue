@@ -76,7 +76,7 @@ const onClickAction = () => {
 .home-grid {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 80px 86px 321px 45px 91px;
+  grid-template-rows: minmax(80px, 164px) 86px 321px 45px 91px;
 
   > div {
     border: 1px solid white;
